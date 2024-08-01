@@ -11,6 +11,7 @@ import org.bukkit.plugin.Plugin
 import org.holoeasy.hologram.Hologram
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
+import kotlin.math.floor
 
 class KeyAlreadyExistsException(key: UUID) : IllegalStateException("Id '$key' already exists")
 class NoValueForKeyException(key: UUID) : IllegalStateException("No value for id '$key'")
@@ -95,12 +96,10 @@ class HologramPool(override val plugin: Plugin, private val spawnDistance: Doubl
                         hologram.hide(player)
                         continue
                     }
-                    val inRange = holoLoc.distanceSquared(playerLoc) <= this.spawnDistance
+                    val inRange = (floor(holoLoc.distanceSquared(playerLoc))) <= (this.spawnDistance * this.spawnDistance)
 
                     if (!inRange && isShown) {
                         hologram.hide(player)
-                    } else if (inRange && !isShown) {
-                        hologram.show(player)
                     }
                 }
             }

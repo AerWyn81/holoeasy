@@ -20,7 +20,7 @@ Lightweight replacement for Holographic Display. HoloEasy only uses packets inst
 <dependency>
     <groupId>com.github.unldenis.holoeasy</groupId>
     <artifactId>holoeasy-core</artifactId>
-    <version>3.4.3</version>
+    <version>3.4.4</version>
 </dependency>
 
 <!-- For java projects include also the kotlin stdlib -->
